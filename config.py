@@ -423,6 +423,7 @@ def init_widgets_list():
             padding_x=10,
             icon_size=20,
         ),
+        widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
     ]
     return widgets_list
 
