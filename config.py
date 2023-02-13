@@ -1,12 +1,9 @@
 import os
-import re
 import socket
 import subprocess
-from typing import List  # noqa: F401
 from libqtile import layout, bar, widget, hook, qtile
-from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
+from libqtile.config import Drag, Group, Key, Match, Screen
 from libqtile.command import lazy
-from qtile_extras.widget.decorations import RectDecoration
 from qtile_extras.widget.decorations import BorderDecoration
 from qtile_extras import widget
 from libqtile.bar import Bar
@@ -43,7 +40,8 @@ keys = [
     Key([mod], "Escape", lazy.spawn("xkill")),
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "KP_Enter", lazy.spawn("kitty")),
-    Key([mod], "x", lazy.spawn(home + "/.config/rofi/bin/powermenu")),
+    # Key([mod], "x", lazy.spawn(home + "/.config/rofi/bin/powermenu")),
+    Key([mod], "x", lazy.spawn(home + "/.config/qtile/powermenu")),
     Key(
         [mod],
         "r",
@@ -63,11 +61,7 @@ keys = [
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
     Key([], "XF86AudioStop", lazy.spawn("playerctl stop")),
-    #    Key([], "XF86AudioPlay", lazy.spawn("mpc toggle")),
-    #    Key([], "XF86AudioNext", lazy.spawn("mpc next")),
-    #    Key([], "XF86AudioPrev", lazy.spawn("mpc prev")),
-    #    Key([], "XF86AudioStop", lazy.spawn("mpc stop")),
-    # QTILE LAYOUT KEYS
+
     Key([mod], "n", lazy.layout.normalize()),
     Key([mod, "shift"], "n", lazy.next_layout()),
     # CHANGE FOCUS
@@ -250,29 +244,11 @@ layout_theme = init_layout_theme()
 
 layouts = [
     layout.RatioTile(**layout_theme),
-    layout.MonadTall(
-        margin=8, border_width=0, border_focus="#282828", border_normal="#282828"
-    ),
-    layout.MonadWide(
-        margin=8, border_width=0, border_focus="#282828", border_normal="#282828"
-    ),
+    layout.MonadTall(**layout_theme),
+    layout.MonadWide(**layout_theme),
     layout.Matrix(**layout_theme),
     layout.Bsp(**layout_theme),
     layout.Floating(**layout_theme),
-    # layout.Columns(**layout_theme),
-    # layout.Stack(**layout_theme),
-    # layout.Tile(**layout_theme),
-    # layout.TreeTab(
-    #     sections=["FIRST", "SECOND"],
-    #     bg_color="#141414",
-    #     active_bg="#f5c2e7",
-    #     inactive_bg="#f5e0dc",
-    #     padding_y=5,
-    #     section_top=10,
-    #     panel_width=280,
-    # ),
-    # layout.VerticalTile(**layout_theme),
-    # layout.Zoomy(**layout_theme),
 ]
 
 # COLORS FOR THE BAR
@@ -320,12 +296,6 @@ widget_defaults = init_widgets_defaults()
 def init_widgets_list():
     prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     widgets_list = [
-        # widget.Image(
-        #     filename="/home/wizard/Downloads/logo.png",
-        #     iconsize=4,
-        #     margin_x=10,
-        #     mouse_callbacks={'Button1': lambda : qtile.cmd_spawn('jgmenu_run')}
-        # ),
         widget.GroupBox(
             **base(bg=colors[0]),
             font="Cozette",
@@ -344,13 +314,13 @@ def init_widgets_list():
             disable_drag=True,
         ),
         widget.TaskList(
-            # highlight_method="border",
+            highlight_method="block",
+            fontsize=10,
             icon_size=None,
             rounded=True,
             margin_x=10,
-            border=colors[7],
+            border=colors[10],
             foreground=colors[2],
-            margin=2,
             txt_floating="🗗",
             txt_minimized=">_ ",
             borderwidth=1,
@@ -359,7 +329,6 @@ def init_widgets_list():
         widget.CurrentLayoutIcon(
             # custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
             foreground=colors[10],
-            # background=colors[0],
             padding=0,
             scale=0.7,
             margin_x=10,
@@ -381,7 +350,7 @@ def init_widgets_list():
                 )
             ],
         ),
-        widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
+        widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.CPU(
             format=" {load_percent}%",
             update_interval=1,
@@ -394,7 +363,7 @@ def init_widgets_list():
                 )
             ],
         ),
-        widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
+        widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.Memory(
             format="{MemUsed: .0f}M",
             update_interval=1,
@@ -408,7 +377,7 @@ def init_widgets_list():
                 )
             ],
         ),
-        widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
+        widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.Backlight(
             foreground=colors[2],
             backlight_name="nvidia_wmi_ec_backlight",
@@ -421,7 +390,7 @@ def init_widgets_list():
                 )
             ],
         ),
-        widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
+        widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.Clock(
             foreground=colors[2],
             # margin_x=20,
@@ -433,7 +402,7 @@ def init_widgets_list():
                 )
             ],
         ),
-        widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
+        widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.UPowerWidget(
             battery_height=15,
             battery_width=30,
@@ -448,14 +417,12 @@ def init_widgets_list():
             text_discarging="({percentage:.0f}%)",
             margin=15,
         ),
-        widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
+        widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.Systray(
-            foreground=colors[2],
+            margin_x=5,
+            padding_x=10,
             icon_size=20,
-            margin_x=15,
-            padding=4,
         ),
-        widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
     ]
     return widgets_list
 
@@ -514,9 +481,6 @@ dgroups_app_rules = []
 @hook.subscribe.client_new
 def assign_app_group(client):
     d = {}
-#########################################################
-################ assign apps to groups ##################
-#########################################################
     d["1"] = ["Kitty", "kitty"]
     d["2"] = ["Firefox", "firefox"]
     d["3"] = ["Pcmanfm", "pcmanfm", "Pcmanfm-qt", "pcmanfm-qt"]
