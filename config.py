@@ -7,6 +7,7 @@ from libqtile import layout, bar, widget, hook, qtile
 from libqtile.config import Click, Drag, Group, Key, Match, Screen, Rule
 from libqtile.command import lazy
 from qtile_extras.widget.decorations import RectDecoration
+from qtile_extras.widget.decorations import BorderDecoration
 from qtile_extras import widget
 from libqtile.bar import Bar
 from libqtile.widget import Spacer
@@ -373,6 +374,12 @@ def init_widgets_list():
             format="{down} ↓↑{up} ",
             foreground=colors[2],
             adding=0,
+            decorations=[
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[5],
+                )
+            ],
         ),
         widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
         widget.CPU(
@@ -380,13 +387,26 @@ def init_widgets_list():
             update_interval=1,
             foreground=colors[2],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
+            decorations=[
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[7],
+                )
+            ],
         ),
+        widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
         widget.Memory(
             format="{MemUsed: .0f}M",
             update_interval=1,
             measure_mem="M",
             foreground=colors[2],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
+            decorations=[
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[6],
+                )
+            ],
         ),
         widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
         widget.Backlight(
@@ -394,6 +414,12 @@ def init_widgets_list():
             backlight_name="nvidia_wmi_ec_backlight",
             format=" {percent:2.0%}",
             margin_x=8,
+            decorations=[
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[8],
+                )
+            ],
         ),
         widget.UPowerWidget(
             battery_height=15,
@@ -414,6 +440,12 @@ def init_widgets_list():
             foreground=colors[2],
             # margin_x=20,
             format=" %H:%M (%d/%m/%y)",
+            decorations=[
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[4],
+                )
+            ],
         ),
         widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
         widget.Systray(
