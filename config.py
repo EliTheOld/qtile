@@ -421,6 +421,19 @@ def init_widgets_list():
                 )
             ],
         ),
+        widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
+        widget.Clock(
+            foreground=colors[2],
+            # margin_x=20,
+            format=" %H:%M (%d/%m/%y)",
+            decorations=[
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[4],
+                )
+            ],
+        ),
+        widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
         widget.UPowerWidget(
             battery_height=15,
             battery_width=30,
@@ -434,18 +447,6 @@ def init_widgets_list():
             text_charging="({percentage:.0f}%) {ttf} until fully charged",
             text_discarging="({percentage:.0f}%)",
             margin=15,
-        ),
-        widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
-        widget.Clock(
-            foreground=colors[2],
-            # margin_x=20,
-            format=" %H:%M (%d/%m/%y)",
-            decorations=[
-                BorderDecoration(
-                    border_width=[0, 0, 3, 0],
-                    colour=colors[4],
-                )
-            ],
         ),
         widget.Sep(linewidth=1, padding=10, foreground=colors[0]),
         widget.Systray(
