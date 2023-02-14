@@ -316,7 +316,8 @@ def init_widgets_list():
         widget.TaskList(
             highlight_method="block",
             fontsize=10,
-            icon_size=None,
+            icon_size=20,
+            margin_y=3,
             rounded=True,
             margin_x=10,
             border=colors[10],
@@ -460,7 +461,7 @@ def init_screens():
         Screen(
             top=bar.Bar(
                 widgets=init_widgets_screen1(),
-                size=26,
+                size=30,
                 opacity=1.0,
                 background="#282828",
             )
