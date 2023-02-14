@@ -316,7 +316,7 @@ def init_widgets_list():
         widget.TaskList(
             highlight_method="block",
             fontsize=10,
-            icon_size=20,
+            icon_size=15,
             margin_y=3,
             rounded=True,
             margin_x=10,
