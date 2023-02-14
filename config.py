@@ -378,6 +378,16 @@ def init_widgets_list():
             ],
         ),
         widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
+        widget.PulseVolume(
+            fmt="墳 {}",
+            decorations=[
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[3],
+                )
+            ],
+        ),
+        widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.Backlight(
             foreground=colors[2],
             backlight_name="nvidia_wmi_ec_backlight",
