@@ -370,9 +370,20 @@ def init_widgets_list():
             decorations=[
                 BorderDecoration(
                     border_width=[0, 0, 3, 0],
-                    colour=colors[7],
+                    colour=colors[3],
                 )
             ],
+        ),
+        widget.ThermalSensor(
+            foreground=colors[2],
+            format=" {temp:.0f}{unit}",
+            decorations=[
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[3],
+                )
+            ],
+
         ),
         widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.Memory(
@@ -391,10 +402,11 @@ def init_widgets_list():
         widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.PulseVolume(
             fmt="墳 {}",
+            foreground=colors[2],
             decorations=[
                 BorderDecoration(
                     border_width=[0, 0, 3, 0],
-                    colour=colors[3],
+                    colour=colors[7],
                 )
             ],
         ),
@@ -436,9 +448,8 @@ def init_widgets_list():
             fill_low=colors[8],
             text_charging="({percentage:.0f}%) {ttf} until fully charged",
             text_discarging="({percentage:.0f}%)",
-            margin=15,
+            margin=5,
         ),
-        widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.Systray(
             margin_x=5,
             padding_x=10,
