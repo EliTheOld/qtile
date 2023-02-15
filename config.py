@@ -41,7 +41,6 @@ keys = [
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "KP_Enter", lazy.spawn("kitty")),
     # Key([mod], "x", lazy.spawn(home + "/.config/rofi/bin/powermenu")),
-    Key([mod], "x", lazy.spawn(home + "/.config/qtile/powermenu")),
     Key(
         [mod],
         "r",
