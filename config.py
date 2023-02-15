@@ -296,6 +296,7 @@ widget_defaults = init_widgets_defaults()
 def init_widgets_list():
     prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     widgets_list = [
+        widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.GroupBox(
             **base(bg=colors[0]),
             font="Cozette",
@@ -304,7 +305,7 @@ def init_widgets_list():
             active=colors[4],
             inactive=colors[2],
             rounded=True,
-            highlight_method="text",
+            highlight_method="line",
             urgent_alert_method="block",
             urgent_border=colors[3],
             this_current_screen_border=colors[6],
@@ -329,21 +330,9 @@ def init_widgets_list():
         widget.Spacer(),
         widget.CurrentLayoutIcon(
             # custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
-            foreground=colors[10],
             padding=0,
             scale=0.7,
             margin_x=10,
-        ),
-        widget.CurrentLayout(
-            foreground=colors[2],
-        ),
-        widget.Spacer(),
-        widget.Net(
-            # Here enter your network name
-            interface=["wlan0"],
-            format="{down} ↓↑{up} ",
-            foreground=colors[2],
-            adding=0,
             decorations=[
                 BorderDecoration(
                     border_width=[0, 0, 3, 0],
@@ -351,7 +340,29 @@ def init_widgets_list():
                 )
             ],
         ),
-        widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
+        widget.CurrentLayout(
+            decorations=[
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[5],
+                )
+            ],
+        ),
+        widget.Spacer(),
+        # widget.Net(
+        #     # Here enter your network name
+        #     interface=["wlan0"],
+        #     format="{down} ↓↑{up} ",
+        #     foreground=colors[2],
+        #     adding=0,
+        #     decorations=[
+        #         BorderDecoration(
+        #             border_width=[0, 0, 3, 0],
+        #             colour=colors[5],
+        #         )
+        #     ],
+        # ),
+        # widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.CPU(
             format=" {load_percent}%",
             update_interval=1,
