@@ -427,7 +427,7 @@ def init_widgets_list():
         widget.Clock(
             foreground=colors[2],
             # margin_x=20,
-            format=" %H:%M  %d/%m/%y",
+            format=" %H:%M  %d/%m",
             decorations=[
                 BorderDecoration(
                     border_width=[0, 0, 3, 0],
