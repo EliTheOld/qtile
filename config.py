@@ -299,7 +299,7 @@ def init_widgets_list():
         widget.GroupBox(
             **base(bg=colors[0]),
             # font="Cozette",
-            fontsize=20,
+            fontsize=26,
             borderwidth=4,
             active=colors[4],
             inactive=colors[2],
