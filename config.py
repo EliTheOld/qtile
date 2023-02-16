@@ -45,7 +45,7 @@ keys = [
         [mod],
         "r",
         lazy.spawn(
-            "dmenu_run -nb '#282828' -nf '#ebdbb2' -sb '#d65d0e' -sf '#282828' -fn 'Cozette-18'"
+            "dmenu_run -nb '#282828' -nf '#ebdbb2' -sb '#d65d0e' -sf '#282828' -fn 'JetBrainsMono-15'"
         ),
     ),
     Key([mod, "shift"], "Return", lazy.spawn("pcmanfm")),
@@ -179,10 +179,10 @@ group_names = [
 
 group_labels = [
     "",
-    "",
+    "",
     "",
     "",
-    "",
+    "",
 ]
 
 group_layouts = [
@@ -282,7 +282,7 @@ def base(fg="text", bg="dark"):
 
 def init_widgets_defaults():
     return dict(
-        font="Cozette",
+        font="JetBrains Mono Nerd Font Bold",
         fontsize=16,
         padding=6,
         background=colors[0],
@@ -298,12 +298,13 @@ def init_widgets_list():
         widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.GroupBox(
             **base(bg=colors[0]),
-            font="Cozette",
+            # font="Cozette",
             fontsize=20,
             borderwidth=4,
             active=colors[4],
             inactive=colors[2],
             rounded=True,
+            padding_y=0,
             highlight_method="line",
             urgent_alert_method="block",
             urgent_border=colors[3],
@@ -414,7 +415,7 @@ def init_widgets_list():
         widget.Backlight(
             foreground=colors[2],
             backlight_name="nvidia_wmi_ec_backlight",
-            format=" {percent:2.0%}",
+            format=" {percent:2.0%}",
             margin_x=8,
             decorations=[
                 BorderDecoration(
