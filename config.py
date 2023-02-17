@@ -234,10 +234,10 @@ for i in groups:
 
 def init_layout_theme():
     return {
-        "margin": 8,
-        "border_width": 0,
-        "border_focus": "#cba6f7",
-        "border_normal": "#b4befe",
+        "margin": 0,
+        "border_width": 1,
+        "border_focus": "#98971a",
+        "border_normal": "#ebdbb2",
     }
 
 
