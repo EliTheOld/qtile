@@ -35,7 +35,8 @@ myTerm = "kitty"  # My terminal of choice
 keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "q", lazy.window.kill()),
-    Key([mod], "t", lazy.spawn("kitty")),
+    Key([mod], "t", lazy.spawn(myTerm)),
+    Key([mod], "a", lazy.spawn("alacritty")),
     Key(
         [mod], "d", lazy.spawn("/home/wizard/.config/rofi/launchers/type-1/launcher.sh")
     ),
@@ -51,8 +52,8 @@ keys = [
     ),
     Key([mod], "Escape", lazy.spawn("xkill")),
     Key([mod], "Return", lazy.spawn(myTerm)),
-    Key([mod], "KP_Enter", lazy.spawn("kitty")),
-    Key([mod, "shift"], "Return", lazy.spawn("pcmanfm")),
+    Key([mod], "KP_Enter", lazy.spawn(myTerm)),
+    Key([mod, "shift"], "Return", lazy.spawn("thunar")),
     Key([mod, "shift"], "r", lazy.restart()),
     Key(["mod1"], "f", lazy.spawn("firefox")),
     Key([], "XF86MonBrightnessUp", lazy.spawn("brightnessctl s +5%")),
@@ -519,9 +520,9 @@ dgroups_app_rules = []
 @hook.subscribe.client_new
 def assign_app_group(client):
     d = {}
-    d["1"] = ["Kitty", "kitty"]
+    d["1"] = ["Kitty", "kitty", "alacritty", "Alacritty"]
     d["2"] = ["Firefox", "firefox"]
-    d["3"] = ["Pcmanfm", "pcmanfm", "Pcmanfm-qt", "pcmanfm-qt"]
+    d["3"] = ["Pcmanfm", "pcmanfm", "Pcmanfm-qt", "pcmanfm-qt", "thunar", "Thunar"]
     ##########################################################
     wm_class = client.window.get_wm_class()[0]
 
