@@ -36,20 +36,22 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "q", lazy.window.kill()),
     Key([mod], "t", lazy.spawn("kitty")),
-    Key([mod], "d", lazy.spawn(
-        "/home/wizard/.config/rofi/launchers/type-1/launcher.sh")),
-    Key([mod], "x", lazy.spawn(
-        "/home/wizard/.config/rofi/powermenu/type-2/powermenu.sh")),
-    Key([mod], "Escape", lazy.spawn("xkill")),
-    Key([mod], "Return", lazy.spawn(myTerm)),
-    Key([mod], "KP_Enter", lazy.spawn("kitty")),
+    Key(
+        [mod], "d", lazy.spawn("/home/wizard/.config/rofi/launchers/type-1/launcher.sh")
+    ),
+    Key(
+        [mod],
+        "x",
+        lazy.spawn("/home/wizard/.config/rofi/powermenu/type-2/powermenu.sh"),
+    ),
     Key(
         [mod],
         "r",
-        lazy.spawn(
-            "dmenu_run -nb '#282828' -nf '#ebdbb2' -sb '#d65d0e' -sf '#282828' -fn 'JetBrainsMono-15'"
-        ),
+        lazy.spawn("/home/wizard/.config/rofi/launchers/type-1/launcherd.sh"),
     ),
+    Key([mod], "Escape", lazy.spawn("xkill")),
+    Key([mod], "Return", lazy.spawn(myTerm)),
+    Key([mod], "KP_Enter", lazy.spawn("kitty")),
     Key([mod, "shift"], "Return", lazy.spawn("pcmanfm")),
     Key([mod, "shift"], "r", lazy.restart()),
     Key(["mod1"], "f", lazy.spawn("firefox")),
@@ -62,7 +64,6 @@ keys = [
     Key([], "XF86AudioNext", lazy.spawn("playerctl next")),
     Key([], "XF86AudioPrev", lazy.spawn("playerctl previous")),
     Key([], "XF86AudioStop", lazy.spawn("playerctl stop")),
-
     Key([mod], "n", lazy.layout.normalize()),
     Key([mod, "shift"], "n", lazy.next_layout()),
     # CHANGE FOCUS
@@ -369,8 +370,7 @@ def init_widgets_list():
             format=" {load_percent}%",
             update_interval=1,
             foreground=colors[2],
-            mouse_callbacks={
-                "Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
+            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
             decorations=[
                 BorderDecoration(
                     border_width=[0, 0, 3, 0],
@@ -387,7 +387,6 @@ def init_widgets_list():
                     colour=colors[3],
                 )
             ],
-
         ),
         widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.Memory(
@@ -395,8 +394,7 @@ def init_widgets_list():
             update_interval=1,
             measure_mem="M",
             foreground=colors[2],
-            mouse_callbacks={
-                "Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
+            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
             decorations=[
                 BorderDecoration(
                     border_width=[0, 0, 3, 0],
@@ -524,7 +522,7 @@ def assign_app_group(client):
     d["1"] = ["Kitty", "kitty"]
     d["2"] = ["Firefox", "firefox"]
     d["3"] = ["Pcmanfm", "pcmanfm", "Pcmanfm-qt", "pcmanfm-qt"]
-##########################################################
+    ##########################################################
     wm_class = client.window.get_wm_class()[0]
 
     for i in range(len(d)):
@@ -532,6 +530,7 @@ def assign_app_group(client):
             group = list(d.keys())[i]
             client.togroup(group)
             client.group.cmd_toscreen()
+
 
 # END
 # ASSIGN APPLICATIONS TO A SPECIFIC GROUPNAME
