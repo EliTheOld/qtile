@@ -549,8 +549,6 @@ def start_once():
 def start_always():
     # Set the cursor to something sane in X
     subprocess.Popen(["xsetroot", "-cursor_name", "left_ptr"])
-    home = os.path.expanduser("~")
-    subprocess.call([home + "/.config/qtile/scripts/autostart.sh"])
 
 
 @hook.subscribe.client_new
