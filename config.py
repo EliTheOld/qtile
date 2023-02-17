@@ -36,11 +36,13 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "q", lazy.window.kill()),
     Key([mod], "t", lazy.spawn("kitty")),
-    Key([mod], "d", lazy.spawn("rofi -show drun")),
+    Key([mod], "d", lazy.spawn(
+        "/home/wizard/.config/rofi/launchers/type-1/launcher.sh")),
+    Key([mod], "x", lazy.spawn(
+        "/home/wizard/.config/rofi/powermenu/type-2/powermenu.sh")),
     Key([mod], "Escape", lazy.spawn("xkill")),
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "KP_Enter", lazy.spawn("kitty")),
-    # Key([mod], "x", lazy.spawn(home + "/.config/rofi/bin/powermenu")),
     Key(
         [mod],
         "r",
@@ -367,7 +369,8 @@ def init_widgets_list():
             format=" {load_percent}%",
             update_interval=1,
             foreground=colors[2],
-            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
+            mouse_callbacks={
+                "Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
             decorations=[
                 BorderDecoration(
                     border_width=[0, 0, 3, 0],
@@ -392,7 +395,8 @@ def init_widgets_list():
             update_interval=1,
             measure_mem="M",
             foreground=colors[2],
-            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
+            mouse_callbacks={
+                "Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
             decorations=[
                 BorderDecoration(
                     border_width=[0, 0, 3, 0],
@@ -512,6 +516,8 @@ dgroups_app_rules = []
 
 # ASSIGN APPLICATIONS TO A SPECIFIC GROUPNAME
 # BEGIN
+
+
 @hook.subscribe.client_new
 def assign_app_group(client):
     d = {}
