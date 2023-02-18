@@ -48,8 +48,7 @@ keys = [
     Key(
         [mod],
         "r",
-        lazy.spawn("/home/wizard/.config/rofi/launchers/type-1/launcherd.sh"),
-    ),
+        lazy.spawn("dmenu_run -nb '#282828' -nf '#ebdbb2' -sb '#d65d0e' -sf '#282828' -fn 'JetBrainsMono-15'")),
     Key([mod], "Escape", lazy.spawn("xkill")),
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "KP_Enter", lazy.spawn(myTerm)),
