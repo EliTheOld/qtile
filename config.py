@@ -9,7 +9,6 @@ from qtile_extras import widget
 from libqtile.bar import Bar
 from libqtile.widget import Spacer
 
-# mod4 or mod = super key
 mod = "mod4"
 mod1 = "alt"
 mod2 = "control"
@@ -30,7 +29,7 @@ def window_to_next_group(qtile):
         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
 
 
-myTerm = "kitty"  # My terminal of choice
+myTerm = "kitty"
 
 keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
@@ -66,7 +65,6 @@ keys = [
     Key([], "XF86AudioStop", lazy.spawn("playerctl stop")),
     Key([mod], "n", lazy.layout.normalize()),
     Key([mod, "shift"], "n", lazy.next_layout()),
-    # CHANGE FOCUS
     Key([mod], "Up", lazy.layout.up()),
     Key([mod], "Down", lazy.layout.down()),
     Key([mod], "Left", lazy.layout.left()),
@@ -135,43 +133,10 @@ keys = [
         lazy.layout.shrink(),
         lazy.layout.increase_nmaster(),
     ),
-    # FLIP LAYOUT FOR MONADTALL/MONADWIDE
-    Key([mod, "shift"], "f", lazy.layout.flip()),
-    # FLIP LAYOUT FOR BSP
-    Key([mod, "mod1"], "k", lazy.layout.flip_up()),
-    Key([mod, "mod1"], "j", lazy.layout.flip_down()),
-    Key([mod, "mod1"], "l", lazy.layout.flip_right()),
-    Key([mod, "mod1"], "h", lazy.layout.flip_left()),
-    # MOVE WINDOWS UP OR DOWN BSP LAYOUT
-    Key([mod, "shift"], "k", lazy.layout.shuffle_up()),
-    Key([mod, "shift"], "j", lazy.layout.shuffle_down()),
-    Key([mod, "shift"], "h", lazy.layout.shuffle_left()),
-    Key([mod, "shift"], "l", lazy.layout.shuffle_right()),
-    # Treetab controls
-    Key(
-        [mod, "control"],
-        "k",
-        lazy.layout.section_up(),
-        desc="Move up a section in treetab",
-    ),
-    Key(
-        [mod, "control"],
-        "j",
-        lazy.layout.section_down(),
-        desc="Move down a section in treetab",
-    ),
-    # MOVE WINDOWS UP OR DOWN MONADTALL/MONADWIDE LAYOUT
-    Key([mod, "shift"], "Up", lazy.layout.shuffle_up()),
-    Key([mod, "shift"], "Down", lazy.layout.shuffle_down()),
-    Key([mod, "shift"], "Left", lazy.layout.swap_left()),
-    Key([mod, "shift"], "Right", lazy.layout.swap_right()),
-    # TOGGLE FLOATING LAYOUT
-    Key([mod, "shift"], "space", lazy.window.toggle_floating()),
 ]
 
 groups = []
 
-# FOR QWERTY KEYBOARDS
 group_names = [
     "1",
     "2",
@@ -213,15 +178,11 @@ for i in range(len(group_names)):
 for i in groups:
     keys.extend(
         [
-            # CHANGE WORKSPACES
             Key([mod], i.name, lazy.group[i.name].toscreen()),
             Key([mod], "Tab", lazy.screen.next_group()),
             Key([mod, "shift"], "Tab", lazy.screen.prev_group()),
             Key(["mod1"], "Tab", lazy.screen.next_group()),
             Key(["mod1", "shift"], "Tab", lazy.screen.prev_group()),
-            # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND STAY ON WORKSPACE
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name)),
-            # MOVE WINDOW TO SELECTED WORKSPACE 1-10 AND FOLLOW MOVED WINDOW TO WORKSPACE
             Key(
                 [mod, "shift"],
                 i.name,
@@ -253,8 +214,6 @@ layouts = [
     layout.Floating(**layout_theme),
 ]
 
-# COLORS FOR THE BAR
-
 
 def init_colors():
     return [
@@ -280,9 +239,6 @@ def base(fg="text", bg="dark"):
     return {"foreground": colors[2], "background": colors[0]}
 
 
-# WIDGETS FOR THE BAR
-
-
 def init_widgets_defaults():
     return dict(
         font="JetBrains Mono Nerd Font Bold",
@@ -301,7 +257,6 @@ def init_widgets_list():
         widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.GroupBox(
             **base(bg=colors[0]),
-            # font="Cozette",
             fontsize=26,
             borderwidth=4,
             active=colors[4],
@@ -332,7 +287,6 @@ def init_widgets_list():
         ),
         widget.Spacer(),
         widget.CurrentLayoutIcon(
-            # custom_icon_paths=[os.path.expanduser("~/.config/qtile/icons")],
             padding=0,
             scale=0.7,
             margin_x=10,
@@ -352,20 +306,6 @@ def init_widgets_list():
             ],
         ),
         widget.Spacer(),
-        # widget.Net(
-        #     # Here enter your network name
-        #     interface=["wlan0"],
-        #     format="{down} ↓↑{up} ",
-        #     foreground=colors[2],
-        #     adding=0,
-        #     decorations=[
-        #         BorderDecoration(
-        #             border_width=[0, 0, 3, 0],
-        #             colour=colors[5],
-        #         )
-        #     ],
-        # ),
-        # widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.CPU(
             format=" {load_percent}%",
             update_interval=1,
@@ -496,7 +436,6 @@ def init_screens():
 screens = init_screens()
 
 
-# MOUSE CONFIGURATION
 mouse = [
     Drag(
         [mod],
@@ -512,9 +451,6 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []
 
-# ASSIGN APPLICATIONS TO A SPECIFIC GROUPNAME
-# BEGIN
-
 
 @hook.subscribe.client_new
 def assign_app_group(client):
@@ -522,7 +458,6 @@ def assign_app_group(client):
     d["1"] = ["Kitty", "kitty", "alacritty", "Alacritty"]
     d["2"] = ["Firefox", "firefox"]
     d["3"] = ["Pcmanfm", "pcmanfm", "Pcmanfm-qt", "pcmanfm-qt", "thunar", "Thunar"]
-    ##########################################################
     wm_class = client.window.get_wm_class()[0]
 
     for i in range(len(d)):
@@ -530,10 +465,6 @@ def assign_app_group(client):
             group = list(d.keys())[i]
             client.togroup(group)
             client.group.cmd_toscreen()
-
-
-# END
-# ASSIGN APPLICATIONS TO A SPECIFIC GROUPNAME
 
 
 main = None
@@ -547,7 +478,6 @@ def start_once():
 
 @hook.subscribe.startup
 def start_always():
-    # Set the cursor to something sane in X
     subprocess.Popen(["xsetroot", "-cursor_name", "left_ptr"])
 
 
