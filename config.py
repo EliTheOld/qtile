@@ -35,7 +35,6 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "q", lazy.window.kill()),
     Key([mod], "t", lazy.spawn(myTerm)),
-    Key([mod], "a", lazy.spawn("alacritty")),
     Key(
         [mod], "d", lazy.spawn("/home/wizard/.config/rofi/launchers/type-1/launcher.sh")
     ),
