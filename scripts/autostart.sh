@@ -16,7 +16,7 @@ run pamac-tray &
 numlockx on &
 # blueman-applet &
 feh --bg-scale -z ~/Pictures/gruvbox-wallpapers/ &
-# picom --config .config/picom/picom.conf &
+picom --config .config/picom/picom.conf &
 dunst &
 #starting user applications at boot time
 # run volumeicon &
