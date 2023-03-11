@@ -38,7 +38,7 @@ keys = [
     Key([mod], "q", lazy.window.kill()),
     Key([mod], "t", lazy.spawn(myTerm)),
     Key(
-        [mod], "d", lazy.spawn("/home/wizard/.config/rofi/launchers/type-1/launcher.sh")
+        [mod], "d", lazy.spawn("/home/wizard/.config/rofi/launchers/type-2/launcher.sh")
     ),
     Key(
         [mod],
@@ -48,7 +48,7 @@ keys = [
     Key(
         [mod],
         "r",
-        lazy.spawn("dmenu_run -nb '#2e3440' -nf '#d8dee9' -sb '#d8dee9' -sf '#2e3440' -fn 'Fantasque Sans Mono Nerd Font-15'")),
+        lazy.spawn("dmenu_run -nb '#2e3440' -nf '#d8dee9' -sb '#d8dee9' -sf '#2e3440' -fn 'Fantasque Sans Mono Nerd Font-22'")),
     Key([mod], "Escape", lazy.spawn("xkill")),
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "KP_Enter", lazy.spawn(myTerm)),
@@ -230,6 +230,8 @@ def init_colors():
         ["#d8dee9", "#d8dee9"],  # color 9 cream
         ["#434c5e", "#434c5e"],  # color 10 medgrey
         ["#4c566a", "#4c566a"],  # color 11 grey
+        ["#8fbcbb", "#8fbcbb"],  # color 12 grey
+        ["#88c0d0", "#88c0d0"],  # color 13 grey
     ]
 
 
@@ -259,14 +261,14 @@ def init_widgets_list():
         widget.GroupBox(
             **base(bg=colors[0]),
             borderwidth=4,
-            active=colors[4],
+            active=colors[12],
             inactive=colors[2],
             rounded=True,
             padding_y=0,
             highlight_method="line",
             urgent_alert_method="block",
             urgent_border=colors[3],
-            this_current_screen_border=colors[6],
+            this_current_screen_border=colors[13],
             this_screen_border=colors[6],
             other_current_screen_border=colors[6],
             other_screen_border=colors[9],
