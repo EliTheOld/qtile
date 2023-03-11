@@ -195,9 +195,9 @@ for i in groups:
 def init_layout_theme():
     return {
         "margin": 10,
-        "border_width": 1,
-        "border_focus": "#98971a",
-        "border_normal": "#ebdbb2",
+        "border_width": 2,
+        "border_focus": "#8fbcbb",
+        "border_normal": "#2e3440",
     }
 
 
@@ -216,18 +216,18 @@ layouts = [
 
 def init_colors():
     return [
-        ["#282828", "#282828"],  # color 0 bg
+        ["#2e3440", "#2e3440"],  # color 0 bg
         ["#1d2021", "#1d2021"],  # color 1 black
-        ["#ebdbb2", "#ebdbb2"],  # color 2 fg white
-        ["#cc241d", "#cc241d"],  # color 3 red
-        ["#98971a", "#98971a"],  # color 4 green
-        ["#458588", "#548588"],  # color 5 blue
-        ["#d65d0e", "#d65d0e"],  # color 6 orange
-        ["#b16286", "#b16286"],  # color 7 pink
-        ["#d79921", "#d79921"],  # color 8 yellow
-        ["#bdae93", "#bdae93"],  # color 9 cream
-        ["#504945", "#504935"],  # color 10 medgrey
-        ["#b0b5bd", "#b0b5bd"],  # color 11 grey
+        ["#eceff4", "#eceff4"],  # color 2 fg white
+        ["#bf616a", "#bf616a"],  # color 3 red
+        ["#a3be8c", "#a3be8c"],  # color 4 green
+        ["#5e81ac", "#5e81ac"],  # color 5 blue
+        ["#d08770", "#d08770"],  # color 6 orange
+        ["#b48ead", "#b48ead"],  # color 7 pink
+        ["#ebcb8b", "#ebcb8b"],  # color 8 yellow
+        ["#d8dee9", "#d8dee9"],  # color 9 cream
+        ["#434c5e", "#434c5e"],  # color 10 medgrey
+        ["#4c566a", "#4c566a"],  # color 11 grey
     ]
 
 
@@ -240,7 +240,7 @@ def base(fg="text", bg="dark"):
 
 def init_widgets_defaults():
     return dict(
-        font="JetBrains Mono Nerd Font Bold",
+        font="Fantasque Sans Mono Nerd Font",
         fontsize=16,
         padding=6,
         background=colors[0],
@@ -256,7 +256,6 @@ def init_widgets_list():
         widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.GroupBox(
             **base(bg=colors[0]),
-            fontsize=26,
             borderwidth=4,
             active=colors[4],
             inactive=colors[2],
