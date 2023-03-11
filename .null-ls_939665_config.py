@@ -4,9 +4,7 @@ import subprocess
 from libqtile import layout, bar, widget, hook, qtile
 from libqtile.config import Drag, Group, Key, Match, Screen
 from libqtile.command import lazy
-from qtile_extras.widget.decorations import PowerLineDecoration
 from qtile_extras.widget.decorations import BorderDecoration
-from qtile_extras.widget.decorations import RectDecoration
 from qtile_extras import widget
 from libqtile.bar import Bar
 from libqtile.widget import Spacer
@@ -312,19 +310,9 @@ def init_widgets_list():
             foreground=colors[2],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
             decorations=[
-                RectDecoration(
-                    use_widget_background=True,
-                    padding_y=5,
-                    filled=True,
-                    radius=0,
-                ),
-                PowerLineDecoration(
-                path="arrow_right",
-                padding_y=5,
-                background=colors[3],
-                # BorderDecoration(
-                #     border_width=[0, 0, 3, 0],
-                #     colour=colors[3],
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[3],
                 )
             ],
         ),
@@ -332,10 +320,10 @@ def init_widgets_list():
             foreground=colors[2],
             format=" {temp:.0f}{unit}",
             decorations=[
-                # BorderDecoration(
-                #     border_width=[0, 0, 3, 0],
-                #     colour=colors[3],
-                # )
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[3],
+                )
             ],
         ),
         widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
@@ -346,10 +334,10 @@ def init_widgets_list():
             foreground=colors[2],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
             decorations=[
-                # BorderDecoration(
-                #     border_width=[0, 0, 3, 0],
-                #     colour=colors[6],
-                # )
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[6],
+                )
             ],
         ),
         widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
@@ -357,10 +345,10 @@ def init_widgets_list():
             fmt="墳 {}",
             foreground=colors[2],
             decorations=[
-                # BorderDecoration(
-                #     border_width=[0, 0, 3, 0],
-                #     colour=colors[7],
-                # )
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[7],
+                )
             ],
         ),
         widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
@@ -370,10 +358,10 @@ def init_widgets_list():
             format=" {percent:2.0%}",
             margin_x=8,
             decorations=[
-                # BorderDecoration(
-                #     border_width=[0, 0, 3, 0],
-                #     colour=colors[8],
-                # )
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[8],
+                )
             ],
         ),
         widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
@@ -382,10 +370,10 @@ def init_widgets_list():
             # margin_x=20,
             format=" %H:%M  %d/%m",
             decorations=[
-                # BorderDecoration(
-                #     border_width=[0, 0, 3, 0],
-                #     colour=colors[4],
-                # )
+                BorderDecoration(
+                    border_width=[0, 0, 3, 0],
+                    colour=colors[4],
+                )
             ],
         ),
         widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
