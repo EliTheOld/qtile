@@ -29,7 +29,7 @@ def window_to_next_group(qtile):
         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
 
 
-myTerm = "alacritty"
+myTerm = "kitty"
 
 keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
@@ -46,7 +46,7 @@ keys = [
     Key(
         [mod],
         "r",
-        lazy.spawn("dmenu_run -nb '#2e3440' -nf '#d8dee9' -sb '#d8dee9' -sf '#2e3440' -fn 'Fantasque Sans Mono Nerd Font-15'")),
+        lazy.spawn("dmenu_run -nb '#282828' -nf '#ebdbb2' -sb '#d65d0e' -sf '#282828' -fn 'JetBrainsMono-15'")),
     Key([mod], "Escape", lazy.spawn("xkill")),
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "KP_Enter", lazy.spawn(myTerm)),
