@@ -29,7 +29,7 @@ def window_to_next_group(qtile):
         qtile.currentWindow.togroup(qtile.groups[i + 1].name)
 
 
-myTerm = "kitty"
+myTerm = "alacritty"
 
 keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
@@ -46,7 +46,7 @@ keys = [
     Key(
         [mod],
         "r",
-        lazy.spawn("dmenu_run -nb '#282828' -nf '#ebdbb2' -sb '#d65d0e' -sf '#282828' -fn 'JetBrainsMono-15'")),
+        lazy.spawn("dmenu_run -nb '#2e3440' -nf '#eceff4' -sb '#d8dee9' -sf '#2e3440' -fn 'Fantasue Sans Mono Nerd Font-15'")),
     Key([mod], "Escape", lazy.spawn("xkill")),
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "KP_Enter", lazy.spawn(myTerm)),
@@ -240,7 +240,7 @@ def base(fg="text", bg="dark"):
 
 def init_widgets_defaults():
     return dict(
-        font="JetBrains Mono Nerd Font Bold",
+        font="Fantasque Sans Mono Nerd Font",
         fontsize=16,
         padding=6,
         background=colors[0],
@@ -256,7 +256,6 @@ def init_widgets_list():
         widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.GroupBox(
             **base(bg=colors[0]),
-            fontsize=26,
             borderwidth=4,
             active=colors[4],
             inactive=colors[2],

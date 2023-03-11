@@ -12,11 +12,12 @@ function run {
 #starting utility applications at boot time
 lxsession &
 run nm-applet &
-run pamac-tray &
+# run pamac-tray &
 numlockx on &
 # blueman-applet &
-feh --bg-scale -z ~/Pictures/gruvbox-wallpapers/ &
-picom --config .config/picom/picom.conf &
+# feh --bg-scale -z ~/Pictures/nord-theme/ &
+variety &
+# picom --config .config/picom/picom.conf &
 dunst &
 #starting user applications at boot time
 # run volumeicon &
