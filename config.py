@@ -38,7 +38,7 @@ keys = [
     Key([mod], "q", lazy.window.kill()),
     Key([mod], "t", lazy.spawn(myTerm)),
     Key(
-        [mod], "d", lazy.spawn("/home/wizard/.config/rofi/launchers/type-1/launcher.sh")
+        [mod], "d", lazy.spawn("/home/wizard/.config/rofi/launchers/type-2/launcher.sh")
     ),
     Key(
         [mod],
@@ -48,7 +48,7 @@ keys = [
     Key(
         [mod],
         "r",
-        lazy.spawn("dmenu_run -nb '#2e3440' -nf '#d8dee9' -sb '#d8dee9' -sf '#2e3440' -fn 'Fantasque Sans Mono Nerd Font-15'")),
+        lazy.spawn("dmenu_run -nb '#2e3440' -nf '#d8dee9' -sb '#d8dee9' -sf '#2e3440' -fn 'Fantasque Sans Mono Nerd Font-22'")),
     Key([mod], "Escape", lazy.spawn("xkill")),
     Key([mod], "Return", lazy.spawn(myTerm)),
     Key([mod], "KP_Enter", lazy.spawn(myTerm)),
