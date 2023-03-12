@@ -259,9 +259,9 @@ widget_defaults = init_widgets_defaults()
 def init_widgets_list():
     prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     widgets_list = [
-        widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.GroupBox(
-            **base(bg=colors[0]),
+            # **base(bg=colors[10]),
+            background=colors[11],
             borderwidth=4,
             active=colors[4],
             inactive=colors[15],
@@ -277,19 +277,27 @@ def init_widgets_list():
             disable_drag=True,
             font="Iosevka Nerd Font",
         ),
-        widget.TaskList(
-            highlight_method="block",
-            fontsize=10,
-            icon_size=15,
-            # margin_y=3,
-            # rounded=True,
-            margin_x=10,
-            border=colors[10],
-            foreground=colors[2],
-            txt_floating="🗗",
-            txt_minimized=">_ ",
-            borderwidth=1,
+        widget.TextBox(
+            text='',
+            font="Iosevka Nerd Font",
+            background=colors[0],
+            foreground=colors[11],
+            padding=0,
+            fontsize=26
         ),
+        # widget.TaskList(
+        #     highlight_method="border",
+        #     fontsize=10,
+        #     icon_size=15,
+        #     margin_y=3,
+        #     rounded=True,
+        #     margin_x=10,
+        #     border=colors[10],
+        #     foreground=colors[2],
+        #     txt_floating="🗗",
+        #     txt_minimized=">_ ",
+        #     borderwidth=1,
+        # ),
         widget.Spacer(),
         widget.TextBox(
             text=' ',
