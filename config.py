@@ -134,6 +134,9 @@ keys = [
         lazy.layout.shrink(),
         lazy.layout.increase_nmaster(),
     ),
+    #  Change layout from colemak to ru!!
+    Key([mod], "F1", lazy.spawn('setxkbmap -layout us -variant colemak')),
+    Key([mod], "F2", lazy.spawn('setxkbmap -layout ru')),
 ]
 
 groups = []
@@ -151,7 +154,7 @@ group_labels = [
     " ",
     " ",
     " ",
-    " ",
+    "󱎂 ",
 ]
 
 group_layouts = [
@@ -330,6 +333,19 @@ def init_widgets_list():
             text='',
             font="Iosevka Nerd Font",
             background=colors[0],
+            foreground=colors[5],
+            padding=0,
+            fontsize=26
+        ),
+        widget.KeyboardLayout(
+
+            background=colors[5],
+            foreground=colors[9],
+        ),
+        widget.TextBox(
+            text='',
+            font="Iosevka Nerd Font",
+            background=colors[5],
             foreground=colors[13],
             padding=0,
             fontsize=26
