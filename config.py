@@ -218,7 +218,7 @@ layouts = [
 
 def init_colors():
     return [
-        ["#2e3440", "#2e3440"],  # color 0 bg
+        ["#2e3440", "#2e3440"],  # color 0 bg0
         ["#1d2021", "#1d2021"],  # color 1 black
         ["#eceff4", "#eceff4"],  # color 2 fg white
         ["#bf616a", "#bf616a"],  # color 3 red
@@ -227,11 +227,13 @@ def init_colors():
         ["#d08770", "#d08770"],  # color 6 orange
         ["#b48ead", "#b48ead"],  # color 7 pink
         ["#ebcb8b", "#ebcb8b"],  # color 8 yellow
-        ["#d8dee9", "#d8dee9"],  # color 9 cream
-        ["#434c5e", "#434c5e"],  # color 10 medgrey
-        ["#4c566a", "#4c566a"],  # color 11 grey
+        ["#d8dee9", "#d8dee9"],  # color 9 alt white
+        ["#434c5e", "#434c5e"],  # color 10 bg2
+        ["#4c566a", "#4c566a"],  # color 11 bg3
         ["#8fbcbb", "#8fbcbb"],  # color 12 grey
         ["#88c0d0", "#88c0d0"],  # color 13 grey
+        ["#3b4252", "#3b4252"],  # color 14 bg1
+        ["#81a1c1", "#81a1c1"],  # color 15 light blue
     ]
 
 
@@ -288,31 +290,38 @@ def init_widgets_list():
             borderwidth=1,
         ),
         widget.Spacer(),
+        widget.TextBox(
+            text=' ',
+            font="Iosevka Nerd Font",
+            background=colors[0],
+            foreground=colors[11],
+            padding=0,
+            fontsize=26
+        ),
         widget.CurrentLayoutIcon(
             padding=0,
             scale=0.7,
             margin_x=10,
-            decorations=[
-                BorderDecoration(
-                    border_width=[0, 0, 3, 0],
-                    colour=colors[5],
-                )
-            ],
+            background=colors[11],
         ),
         widget.CurrentLayout(
-            decorations=[
-                BorderDecoration(
-                    border_width=[0, 0, 3, 0],
-                    colour=colors[5],
-                )
-            ],
+            fontsize=22,
+            background=colors[11],
+        ),
+        widget.TextBox(
+            text=' ',
+            font="Iosevka Nerd Font",
+            background=colors[0],
+            foreground=colors[11],
+            padding=0,
+            fontsize=26
         ),
         widget.Spacer(),
         widget.TextBox(
             text='',
             font="Iosevka Nerd Font",
             background=colors[0],
-            foreground=colors[3],
+            foreground=colors[13],
             padding=0,
             fontsize=26
         ),
@@ -320,40 +329,27 @@ def init_widgets_list():
             format=" {load_percent}%",
             update_interval=1,
             foreground=colors[0],
-            background=colors[3],
+            background=colors[13],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
-            # decorations=[
-            #     BorderDecoration(
-            #         border_width=[0, 0, 3, 0],
-            #         colour=colors[3],
-            #     )
-            # ],
         ),
         widget.TextBox(
             text='',
             font="Iosevka Nerd Font",
-            background=colors[3],
-            foreground=colors[13],
+            background=colors[13],
+            foreground=colors[15],
             padding=0,
             fontsize=26
         ),
         widget.ThermalSensor(
             foreground=colors[0],
             format=" {temp:.0f}{unit}",
-            background=colors[13],
-            # decorations=[
-            #     BorderDecoration(
-            #         border_width=[0, 0, 3, 0],
-            #         colour=colors[3],
-            #     )
-            # ],
+            background=colors[15],
         ),
-        # widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.TextBox(
             text='',
             font="Iosevka Nerd Font",
-            background=colors[13],
-            foreground=colors[6],
+            background=colors[15],
+            foreground=colors[11],
             padding=0,
             fontsize=26
         ),
@@ -361,101 +357,73 @@ def init_widgets_list():
             format="{MemUsed: .0f}M",
             update_interval=1,
             measure_mem="M",
-            foreground=colors[0],
+            foreground=colors[2],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
-            background=colors[6],
-            # decorations=[
-            #     BorderDecoration(
-            #         border_width=[0, 0, 3, 0],
-            #         colour=colors[6],
-            #     )
-            # ],
+            background=colors[11],
         ),
-        # widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.TextBox(
             text='',
             font="Iosevka Nerd Font",
-            background=colors[6],
-            foreground=colors[7],
+            background=colors[11],
+            foreground=colors[10],
             padding=0,
             fontsize=26
         ),
         widget.PulseVolume(
             fmt="墳 {}",
-            background=colors[7],
-            foreground=colors[0],
-            # foreground=colors[2],
-            # decorations=[
-            #     BorderDecoration(
-            #         border_width=[0, 0, 3, 0],
-            #         colour=colors[7],
-            #     )
-            # ],
+            background=colors[10],
+            foreground=colors[2],
         ),
-        # widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.TextBox(
             text='',
             font="Iosevka Nerd Font",
-            background=colors[7],
-            foreground=colors[8],
+            background=colors[10],
+            foreground=colors[14],
             padding=0,
             fontsize=26
         ),
         widget.Backlight(
-            foreground=colors[0],
+            foreground=colors[2],
             backlight_name="nvidia_wmi_ec_backlight",
             format="  {percent:2.0%}",
             margin_x=8,
-            background=colors[8],
-            # decorations=[
-            #     BorderDecoration(
-            #         border_width=[0, 0, 3, 0],
-            #         colour=colors[8],
-            #     )
-            # ],
+            background=colors[14],
         ),
-        # widget.Sep(linewidth=1, padding=5, foreground=colors[0]),
         widget.TextBox(
             text='',
             font="Iosevka Nerd Font",
-            background=colors[8],
-            foreground=colors[4],
+            background=colors[14],
+            foreground=colors[0],
             padding=0,
             fontsize=26
         ),
         widget.Clock(
-            foreground=colors[0],
-            # margin_x=20,
+            foreground=colors[2],
             format=" %H:%M  %d/%m",
-            background=colors[4],
-            # decorations=[
-            #     BorderDecoration(
-            #         border_width=[0, 0, 3, 0],
-            #         colour=colors[4],
-            #     )
-            # ],
+            background=colors[0],
         ),
         widget.UPowerWidget(
             battery_height=15,
             battery_width=30,
-            border_charge_colour=colors[0],
+            border_charge_colour=colors[2],
             fill_charge=colors[11],
-            border_colour=colors[0],
-            fill_normal=colors[11],
-            border_critical_power=colors[0],
+            border_colour=colors[2],
+            fill_normal=colors[4],
+            border_critical_power=colors[2],
             fill_critical=colors[6],
             fill_low=colors[8],
             text_charging="({percentage:.0f}%) {ttf} until fully charged",
             text_discarging="({percentage:.0f}%)",
             margin=5,
-            background=colors[4],
+            background=colors[0],
         ),
         widget.Systray(
             margin_x=15,
             padding_x=20,
             icon_size=20,
-            background=colors[4],
+            background=colors[0],
         ),
+        widget.Sep(linewidth=1, padding=5, foreground=colors[0], colour=colors[0]),
     ]
     return widgets_list
 
