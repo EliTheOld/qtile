@@ -38,7 +38,7 @@ keys = [
     Key([mod], "q", lazy.window.kill()),
     Key([mod], "t", lazy.spawn(myTerm)),
     Key(
-        [mod], "d", lazy.spawn("/home/wizard/.config/rofi/launchers/type-2/launcher.sh")
+        [mod], "a", lazy.spawn("/home/wizard/.config/rofi/launchers/type-2/launcher.sh")
     ),
     Key(
         [mod],
@@ -147,11 +147,11 @@ group_names = [
 ]
 
 group_labels = [
-    "󰼏",
-    "󰼐",
-    "󰼑",
-    "󰼒",
-    "󰼓",
+    " ",
+    " ",
+    " ",
+    " ",
+    " ",
 ]
 
 group_layouts = [
@@ -263,25 +263,26 @@ def init_widgets_list():
         widget.GroupBox(
             **base(bg=colors[0]),
             borderwidth=4,
-            active=colors[12],
-            inactive=colors[2],
+            active=colors[4],
+            inactive=colors[15],
             rounded=True,
             padding_y=0,
-            highlight_method="line",
+            highlight_method="text",
             urgent_alert_method="block",
             urgent_border=colors[3],
-            this_current_screen_border=colors[13],
-            this_screen_border=colors[6],
+            this_current_screen_border=colors[7],
+            this_screen_border=colors[7],
             other_current_screen_border=colors[6],
             other_screen_border=colors[9],
             disable_drag=True,
+            font="Iosevka Nerd Font",
         ),
         widget.TaskList(
             highlight_method="block",
             fontsize=10,
             icon_size=15,
-            margin_y=3,
-            rounded=True,
+            # margin_y=3,
+            # rounded=True,
             margin_x=10,
             border=colors[10],
             foreground=colors[2],
