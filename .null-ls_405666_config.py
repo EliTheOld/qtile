@@ -492,7 +492,7 @@ def init_widgets_list():
             foreground=colors[2],
             format=" %H:%M  %d/%m",
             background=colors[0],
-            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e calcurse")},
+            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e cal -3 -m")},
         ),
         widget.UPowerWidget(
             battery_height=15,
