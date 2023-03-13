@@ -39,7 +39,7 @@ keys = [
     Key([mod], "t", lazy.spawn(myTerm)),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key(
-        [mod], "a", lazy.spawn("/home/wizard/.config/rofi/launchers/type-3/launcher.sh")
+        [mod], "a", lazy.spawn("/home/wizard/.config/rofi/launchers/type-2/launcher.sh")
     ),
     Key(
         [mod],
