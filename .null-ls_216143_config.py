@@ -44,7 +44,7 @@ keys = [
     Key(
         [mod],
         "x",
-        lazy.spawn("/home/wizard/.config/rofi/powermenu/type-2/powermenu.sh"),
+        lazy.spawn("/home/wizard/.config/rofi/powermenu/type-3/powermenu.sh"),
     ),
     Key(
         [mod],
