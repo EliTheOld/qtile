@@ -32,11 +32,12 @@ def window_to_next_group(qtile):
 
 
 myTerm = "alacritty"
+myTermMain = "kitty"
 
 keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "q", lazy.window.kill()),
-    Key([mod], "t", lazy.spawn(myTerm)),
+    Key([mod], "t", lazy.spawn(myTermMain)),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key(
         [mod], "a", lazy.spawn("/home/wizard/.config/rofi/launchers/type-2/launcher.sh")
@@ -47,8 +48,8 @@ keys = [
         lazy.spawn("/home/wizard/.config/rofi/powermenu/type-3/powermenu.sh"),
     ),
     Key([mod], "Escape", lazy.spawn("xkill")),
-    Key([mod], "Return", lazy.spawn(myTerm)),
-    Key([mod], "KP_Enter", lazy.spawn(myTerm)),
+    Key([mod], "Return", lazy.spawn(myTermMain)),
+    Key([mod], "KP_Enter", lazy.spawn(myTermMain)),
     Key([mod, "shift"], "Return", lazy.spawn("thunar")),
     Key([mod, "shift"], "r", lazy.restart()),
     Key(["mod1"], "f", lazy.spawn("firefox")),
@@ -392,7 +393,7 @@ def init_widgets_list():
             update_interval=1,
             foreground=colors[0],
             background=colors[13],
-            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
+            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e gtop")},
         ),
         widget.TextBox(
             text='',
@@ -405,6 +406,7 @@ def init_widgets_list():
         widget.ThermalSensor(
             foreground=colors[0],
             format=" {temp:.0f}{unit}",
+            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e gotop")},
             background=colors[15],
         ),
         widget.TextBox(
@@ -420,7 +422,7 @@ def init_widgets_list():
             update_interval=1,
             measure_mem="M",
             foreground=colors[2],
-            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e htop")},
+            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e bpytop")},
             background=colors[11],
         ),
         widget.TextBox(
@@ -542,7 +544,7 @@ dgroups_app_rules = []
 @hook.subscribe.client_new
 def assign_app_group(client):
     d = {}
-    d["1"] = ["Kitty", "kitty", "alacritty", "Alacritty"]
+    d["1"] = ["Kitty", "kitty"]
     d["2"] = ["Firefox", "firefox"]
     d["3"] = ["Pcmanfm", "pcmanfm", "Pcmanfm-qt", "pcmanfm-qt", "thunar", "Thunar"]
     wm_class = client.window.get_wm_class()[0]
@@ -610,6 +612,8 @@ floating_layout = layout.Floating(
         Match(wm_class="Yad"),
         Match(wm_class="Cairo-dock"),
         Match(wm_class="cairo-dock"),
+        Match(wm_class="alacritty"),
+        Match(wm_class="Alacritty"),
     ],
     fullscreen_border_width=0,
     border_width=0,
