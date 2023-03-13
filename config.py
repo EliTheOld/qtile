@@ -37,6 +37,7 @@ keys = [
     Key([mod], "f", lazy.window.toggle_fullscreen()),
     Key([mod], "q", lazy.window.kill()),
     Key([mod], "t", lazy.spawn(myTerm)),
+    Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
     Key(
         [mod], "a", lazy.spawn("/home/wizard/.config/rofi/launchers/type-2/launcher.sh")
     ),
@@ -47,7 +48,7 @@ keys = [
     ),
     Key(
         [mod],
-        "r",
+        "d",
         lazy.spawn("dmenu_run -nb '#2e3440' -nf '#d8dee9' -sb '#d8dee9' -sf '#2e3440' -fn 'Fantasque Sans Mono Nerd Font-22'")),
     Key([mod], "Escape", lazy.spawn("xkill")),
     Key([mod], "Return", lazy.spawn(myTerm)),
@@ -316,6 +317,7 @@ def init_widgets_list():
             padding=0,
             fontsize=26
         ),
+
         # widget.Spacer(),
         # widget.TextBox(
         #     text=' ',
@@ -338,8 +340,23 @@ def init_widgets_list():
         widget.TextBox(
             text='',
             font="Iosevka Nerd Font",
-            background=colors[0],
+            background=colors[12],
             foreground=colors[14],
+            padding=0,
+            fontsize=26
+        ),
+        widget.Prompt(
+            background=colors[12],
+            foreground=colors[0],
+            cursor=True,
+            padding_x=5,
+            record_history=True,
+        ),
+        widget.TextBox(
+            text='',
+            font="Iosevka Nerd Font",
+            background=colors[0],
+            foreground=colors[12],
             padding=0,
             fontsize=26
         ),

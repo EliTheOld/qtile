@@ -134,6 +134,10 @@ keys = [
         lazy.layout.shrink(),
         lazy.layout.increase_nmaster(),
     ),
+    #  Change layout from colemak to ru!!
+    # Key([mod], "F1", lazy.spawn('setxkbmap -layout us -variant colemak')),
+    # Key([mod], "F2", lazy.spawn('setxkbmap -layout ru')),
+    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout."),
 ]
 
 groups = []
@@ -280,7 +284,7 @@ def init_widgets_list():
         widget.TextBox(
             text='',
             font="Iosevka Nerd Font",
-            background=colors[0],
+            background=colors[10],
             foreground=colors[11],
             padding=0,
             fontsize=26
@@ -298,38 +302,74 @@ def init_widgets_list():
         #     txt_minimized=">_ ",
         #     borderwidth=1,
         # ),
-        widget.Spacer(),
+        widget.OpenWeather(
+            location='Moscow',
+            format='{location_city}: {icon} {main_temp}°{units_temperature}',
+            background=colors[10],
+            foreground=colors[2],
+        ),
         widget.TextBox(
-            text=' ',
+            text='',
             font="Iosevka Nerd Font",
-            background=colors[0],
-            foreground=colors[11],
+            background=colors[14],
+            foreground=colors[10],
             padding=0,
             fontsize=26
         ),
+        # widget.Spacer(),
+        # widget.TextBox(
+        #     text=' ',
+        #     font="Iosevka Nerd Font",
+        #     background=colors[0],
+        #     foreground=colors[11],
+        #     padding=0,
+        #     fontsize=26
+        # ),
         widget.CurrentLayoutIcon(
             padding=0,
             scale=0.7,
             margin_x=10,
-            background=colors[11],
+            background=colors[14],
         ),
         widget.CurrentLayout(
             fontsize=22,
-            background=colors[11],
+            background=colors[14],
         ),
         widget.TextBox(
-            text=' ',
+            text='',
             font="Iosevka Nerd Font",
             background=colors[0],
-            foreground=colors[11],
+            foreground=colors[14],
             padding=0,
             fontsize=26
         ),
+        # widget.TextBox(
+        #     text=' ',
+        #     font="Iosevka Nerd Font",
+        #     background=colors[0],
+        #     foreground=colors[11],
+        #     padding=0,
+        #     fontsize=26
+        # ),
         widget.Spacer(),
         widget.TextBox(
             text='',
             font="Iosevka Nerd Font",
             background=colors[0],
+            foreground=colors[5],
+            padding=0,
+            fontsize=26
+        ),
+        widget.KeyboardLayout(
+            configured_keyboards=['us colemak', 'ru'],
+            display_map={'us colemak': 'us', 'ru': 'ru'},
+            background=colors[5],
+            foreground=colors[9],
+        ),
+        widget.TextBox(
+            text='',
+            font="Iosevka Nerd Font",
+            background=colors[5],
             foreground=colors[13],
             padding=0,
             fontsize=26
