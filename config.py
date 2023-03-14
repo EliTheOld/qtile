@@ -149,11 +149,16 @@ group_names = [
 ]
 
 group_labels = [
-    " ",
-    " ",
-    " ",
-    " ",
-    "󱎂 ",
+    # " ",
+    # " ",
+    # " ",
+    # " ",
+    # "󱎂 ",
+    "Term",
+    "Web",
+    "Files",
+    "TG",
+    "etc",
 ]
 
 group_layouts = [
@@ -277,7 +282,8 @@ def init_widgets_list():
             other_current_screen_border=colors[6],
             other_screen_border=colors[9],
             disable_drag=True,
-            font="Iosevka Nerd Font",
+            font="Kingthings Petrock",
+            fontsize=20,
         ),
         widget.TextBox(
             text='',
