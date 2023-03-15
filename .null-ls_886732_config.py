@@ -4,11 +4,8 @@ import subprocess
 from libqtile import layout, bar, widget, hook, qtile
 from libqtile.config import Drag, Group, Key, Match, Screen
 from libqtile.command import lazy
-from qtile_extras.widget.decorations import BorderDecoration
-from qtile_extras.widget.decorations import RectDecoration
 from qtile_extras import widget
 from libqtile.bar import Bar
-from libqtile.widget import Spacer
 from libqtile.config import Screen
 
 mod = "mod4"
@@ -132,10 +129,9 @@ keys = [
         lazy.layout.shrink(),
         lazy.layout.increase_nmaster(),
     ),
-    #  Change layout from colemak to ru!!
-    # Key([mod], "F1", lazy.spawn('setxkbmap -layout us -variant colemak')),
-    # Key([mod], "F2", lazy.spawn('setxkbmap -layout ru')),
-    Key([mod], "space", lazy.widget["keyboardlayout"].next_keyboard(), desc="Next keyboard layout."),
+    Key([mod], "space",
+        lazy.widget["keyboardlayout"].next_keyboard(),
+        desc="Next keyboard layout."),
 ]
 
 groups = []
@@ -149,11 +145,6 @@ group_names = [
 ]
 
 group_labels = [
-    # " ",
-    # " ",
-    # " ",
-    # " ",
-    # "󱎂 ",
     "Term",
     "Web",
     "Files",
@@ -247,10 +238,6 @@ def init_colors():
 colors = init_colors()
 
 
-def base(fg="text", bg="dark"):
-    return {"foreground": colors[2], "background": colors[0]}
-
-
 def init_widgets_defaults():
     return dict(
         font="Fantasque Sans Mono Nerd Font",
@@ -267,7 +254,6 @@ def init_widgets_list():
     prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     widgets_list = [
         widget.GroupBox(
-            # **base(bg=colors[10]),
             background=colors[11],
             borderwidth=4,
             active=colors[4],
@@ -293,19 +279,6 @@ def init_widgets_list():
             padding=0,
             fontsize=26
         ),
-        # widget.TaskList(
-        #     highlight_method="border",
-        #     fontsize=10,
-        #     icon_size=15,
-        #     margin_y=3,
-        #     rounded=True,
-        #     margin_x=10,
-        #     border=colors[10],
-        #     foreground=colors[2],
-        #     txt_floating="🗗",
-        #     txt_minimized=">_ ",
-        #     borderwidth=1,
-        # ),
         widget.OpenWeather(
             location='Moscow',
             format='{location_city}: {icon} {main_temp}°{units_temperature}',
@@ -322,8 +295,6 @@ def init_widgets_list():
             padding=0,
             fontsize=26
         ),
-
-        # widget.Spacer(),
         widget.CurrentLayoutIcon(
             padding=0,
             scale=0.7,
@@ -371,7 +342,6 @@ def init_widgets_list():
         ),
         widget.CheckUpdates(
             distro="Arch_checkupdates",
-            # execute='alacritty -e pacman -Syyu',
             mouse_callbacks={'Button1': lambda: qtile.cmd_spawn(myTerm + ' -e sudo pacman -Syu')},
             display_format=' Updates: {updates}',
             padding=4,
@@ -534,7 +504,7 @@ def init_screens():
                 widgets=init_widgets_screen1(),
                 size=30,
                 opacity=1.0,
-                background="#282828",
+                background=colors[0],
             )
         ),
     ]
