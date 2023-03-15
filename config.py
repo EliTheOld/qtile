@@ -271,7 +271,7 @@ def init_widgets_list():
             background=colors[11],
             borderwidth=4,
             active=colors[4],
-            inactive=colors[15],
+            inactive=colors[9],
             rounded=True,
             padding_y=0,
             highlight_method="text",
@@ -324,14 +324,6 @@ def init_widgets_list():
         ),
 
         # widget.Spacer(),
-        # widget.TextBox(
-        #     text=' ',
-        #     font="Iosevka Nerd Font",
-        #     background=colors[0],
-        #     foreground=colors[11],
-        #     padding=0,
-        #     fontsize=26
-        # ),
         widget.CurrentLayoutIcon(
             padding=0,
             scale=0.7,
@@ -346,13 +338,13 @@ def init_widgets_list():
         widget.TextBox(
             text='',
             font="Iosevka Nerd Font",
-            background=colors[12],
+            background=colors[4],
             foreground=colors[14],
             padding=0,
             fontsize=26
         ),
         widget.Prompt(
-            background=colors[12],
+            background=colors[4],
             foreground=colors[0],
             cursor=True,
             padding_x=5,
@@ -364,18 +356,10 @@ def init_widgets_list():
             text='',
             font="Iosevka Nerd Font",
             background=colors[0],
-            foreground=colors[12],
+            foreground=colors[4],
             padding=0,
             fontsize=26
         ),
-        # widget.TextBox(
-        #     text=' ',
-        #     font="Iosevka Nerd Font",
-        #     background=colors[0],
-        #     foreground=colors[11],
-        #     padding=0,
-        #     fontsize=26
-        # ),
         widget.Spacer(),
         widget.TextBox(
             text='',
