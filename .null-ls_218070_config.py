@@ -286,7 +286,7 @@ def init_widgets_list():
             fontsize=20,
         ),
         widget.TextBox(
-            text='',
+            text='',
             font="Iosevka Nerd Font",
             background=colors[10],
             foreground=colors[11],
@@ -315,7 +315,7 @@ def init_widgets_list():
             fontsize=20,
         ),
         widget.TextBox(
-            text='',
+            text='',
             font="Iosevka Nerd Font",
             background=colors[14],
             foreground=colors[10],
@@ -344,7 +344,7 @@ def init_widgets_list():
             fontsize=24,
         ),
         widget.TextBox(
-            text='',
+            text='',
             font="Iosevka Nerd Font",
             background=colors[12],
             foreground=colors[14],
@@ -361,7 +361,7 @@ def init_widgets_list():
             fontsize=20,
         ),
         widget.TextBox(
-            text='',
+            text='',
             font="Iosevka Nerd Font",
             background=colors[0],
             foreground=colors[12],
@@ -378,7 +378,7 @@ def init_widgets_list():
         # ),
         widget.Spacer(),
         widget.TextBox(
-            text='',
+            text='',
             font="Iosevka Nerd Font",
             background=colors[0],
             foreground=colors[15],
@@ -398,7 +398,7 @@ def init_widgets_list():
             fontsize=20,
         ),
         widget.TextBox(
-            text='',
+            text='',
             font="Iosevka Nerd Font",
             background=colors[15],
             foreground=colors[5],
@@ -414,7 +414,7 @@ def init_widgets_list():
             foreground=colors[2],
         ),
         widget.TextBox(
-            text='',
+            text='',
             font="Iosevka Nerd Font",
             background=colors[5],
             foreground=colors[10],
@@ -429,7 +429,7 @@ def init_widgets_list():
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e gtop")},
         ),
         widget.TextBox(
-            text='',
+            text='',
             font="Iosevka Nerd Font",
             background=colors[10],
             foreground=colors[14],
@@ -443,7 +443,7 @@ def init_widgets_list():
             background=colors[14],
         ),
         widget.TextBox(
-            text='',
+            text='',
             font="Iosevka Nerd Font",
             background=colors[14],
             foreground=colors[11],
@@ -459,7 +459,7 @@ def init_widgets_list():
             background=colors[11],
         ),
         widget.TextBox(
-            text='',
+            text='',
             font="Iosevka Nerd Font",
             background=colors[11],
             foreground=colors[10],
@@ -472,7 +472,7 @@ def init_widgets_list():
             foreground=colors[2],
         ),
         widget.TextBox(
-            text='',
+            text='',
             font="Iosevka Nerd Font",
             background=colors[10],
             foreground=colors[14],
@@ -487,7 +487,7 @@ def init_widgets_list():
             background=colors[14],
         ),
         widget.TextBox(
-            text='',
+            text='',
             font="Iosevka Nerd Font",
             background=colors[14],
             foreground=colors[0],
