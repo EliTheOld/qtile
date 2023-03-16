@@ -35,7 +35,6 @@ def init_widgets_list():
             other_current_screen_border=colors[6],
             other_screen_border=colors[9],
             disable_drag=True,
-            font="Kingthings Petrock",
             fontsize=20,
         ),
         widget.TextBox(
@@ -51,7 +50,6 @@ def init_widgets_list():
             format='{location_city}: {icon} {main_temp}°{units_temperature}',
             background=colors[10],
             foreground=colors[2],
-            font="Kingthings Petrock",
             fontsize=20,
         ),
         widget.TextBox(
@@ -70,7 +68,6 @@ def init_widgets_list():
         ),
         widget.CurrentLayout(
             background=colors[14],
-            font="Kingthings Petrock",
             fontsize=24,
         ),
         widget.TextBox(
@@ -87,7 +84,6 @@ def init_widgets_list():
             cursor=True,
             padding_x=5,
             record_history=True,
-            font="Kingthings Petrock",
             fontsize=20,
         ),
         widget.TextBox(
@@ -115,7 +111,6 @@ def init_widgets_list():
             update_interval=60,
             background=colors[15],
             foreground=colors[0],
-            font="Kingthings Petrock",
             fontsize=20,
         ),
         widget.TextBox(
@@ -129,7 +124,6 @@ def init_widgets_list():
         widget.KeyboardLayout(
             configured_keyboards=['us colemak', 'ru'],
             display_map={'us colemak': 'us', 'ru': 'ru'},
-            font="Kingthings Petrock",
             fontsize=24,
             background=colors[5],
             foreground=colors[2],
