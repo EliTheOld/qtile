@@ -1,0 +1,3 @@
+myTerm = "alacritty"
+myTermMain = "kitty"
+

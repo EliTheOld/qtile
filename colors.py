@@ -17,3 +17,6 @@ def nord():
         ["#3b4252", "#3b4252"],  # color 14 bg1
         ["#81a1c1", "#81a1c1"],  # color 15 light blue
     ]
+
+
+colors = nord()  # SET COLORSCHEME
