@@ -11,10 +11,9 @@ from common import myTerm
 def init_widgets_defaults():
     return dict(
         font="Fantasque Sans Mono Nerd Font",
-        fontsize=20,
+        fontsize=16,
         padding=6,
-        # background=colors[0],
-        foreground=colors[2],
+        background=colors[0],
     )
 
 
@@ -50,6 +49,8 @@ def init_widgets_list():
             location='Moscow',
             format='{location_city}: {icon} {main_temp}°{units_temperature}',
             background=colors[10],
+            foreground=colors[2],
+            fontsize=20,
         ),
         widget.TextBox(
             text='',
@@ -67,6 +68,7 @@ def init_widgets_list():
         ),
         widget.CurrentLayout(
             background=colors[14],
+            fontsize=24,
         ),
         widget.TextBox(
             text='',
@@ -82,6 +84,7 @@ def init_widgets_list():
             cursor=True,
             padding_x=5,
             record_history=True,
+            fontsize=20,
         ),
         widget.TextBox(
             text='',
@@ -107,6 +110,8 @@ def init_widgets_list():
             padding=4,
             update_interval=60,
             background=colors[15],
+            foreground=colors[0],
+            fontsize=20,
         ),
         widget.TextBox(
             text='',
@@ -119,7 +124,9 @@ def init_widgets_list():
         widget.KeyboardLayout(
             configured_keyboards=['us colemak', 'ru'],
             display_map={'us colemak': 'us', 'ru': 'ru'},
+            fontsize=24,
             background=colors[5],
+            foreground=colors[2],
         ),
         widget.TextBox(
             text='',
@@ -132,6 +139,7 @@ def init_widgets_list():
         widget.CPU(
             format=" {load_percent}%",
             update_interval=1,
+            foreground=colors[2],
             background=colors[10],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e gtop")},
         ),
@@ -144,6 +152,7 @@ def init_widgets_list():
             fontsize=26
         ),
         widget.ThermalSensor(
+            foreground=colors[2],
             format=" {temp:.0f}{unit}",
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e gotop")},
             background=colors[14],
@@ -160,6 +169,7 @@ def init_widgets_list():
             format="{MemUsed: .0f}M",
             update_interval=1,
             measure_mem="M",
+            foreground=colors[2],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e bpytop")},
             background=colors[11],
         ),
@@ -174,6 +184,7 @@ def init_widgets_list():
         widget.PulseVolume(
             fmt="墳 {}",
             background=colors[10],
+            foreground=colors[2],
         ),
         widget.TextBox(
             text='',
@@ -184,6 +195,7 @@ def init_widgets_list():
             fontsize=26
         ),
         widget.Backlight(
+            foreground=colors[2],
             backlight_name="nvidia_wmi_ec_backlight",
             format="  {percent:2.0%}",
             margin_x=8,
@@ -198,6 +210,7 @@ def init_widgets_list():
             fontsize=26
         ),
         widget.Clock(
+            foreground=colors[2],
             format=" %H:%M  %d/%m",
             background=colors[0],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e calcurse")},
