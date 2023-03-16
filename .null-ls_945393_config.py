@@ -1,13 +1,16 @@
 import os
 import subprocess
-from libqtile import layout, bar, hook
-from libqtile.config import Group, Key, Match, Screen
+from libqtile import layout, bar, widget, hook
+from libqtile.config import Drag, Group, Key, Match, Screen
 from libqtile.command import lazy
+from qtile_extras import widget
+from libqtile.bar import Bar
+from libqtile.config import Screen
 from colors import colors
 from widgets import init_widgets_defaults, init_widgets_list
 from widgets import init_widgets_screen1, init_widgets_screen2
 from widgets import init_layout_theme
-from keys import mod, keys
+from keys import mod, mod1, mod2, keys
 
 home = os.path.expanduser("~")
 
