@@ -125,6 +125,7 @@ def init_widgets_list():
             **decor(fg=colors[10], bg=colors[11], text="")
         ),
         widget.PulseVolume(
+            mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e pulsemixer")},
             fmt="墳 {}",
             background=colors[10],
         ),
@@ -189,5 +190,3 @@ def init_layout_theme():
         "border_focus": colors[12],
         "border_normal": colors[0],
     }
-
-
