@@ -181,6 +181,6 @@ def init_layout_theme():
     return {
         "margin": 10,
         "border_width": 2,
-        "border_focus": colors[12],
+        "border_focus": colors[7],
         "border_normal": colors[0],
     }
