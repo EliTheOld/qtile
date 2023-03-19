@@ -76,7 +76,7 @@ def init_widgets_list():
         ),
         widget.Spacer(),
         widget.TextBox(
-            **decor(fg=colors[10], bg=colors[0], text="")
+            **decor(fg=colors[1], bg=colors[0], text="")
         ),
         widget.CheckUpdates(
             distro="Arch_checkupdates",
@@ -84,35 +84,29 @@ def init_widgets_list():
             display_format=' Updates: {updates}',
             padding=4,
             update_interval=60,
-            background=colors[10],
+            background=colors[1],
         ),
         widget.TextBox(
-            **decor(fg=colors[8], bg=colors[10], text="")
+            **decor(fg=colors[2], bg=colors[1], text="")
         ),
         widget.KeyboardLayout(
             configured_keyboards=['us colemak', 'ru'],
             display_map={'us colemak': 'us', 'ru': 'ru'},
-            background=colors[8],
+            background=colors[2],
         ),
         widget.TextBox(
-            **decor(fg=colors[7], bg=colors[8], text="")
+            **decor(fg=colors[3], bg=colors[2], text="")
         ),
         widget.CPU(
             format=" {load_percent}%",
             update_interval=1,
-            background=colors[7],
+            background=colors[3],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e gtop")},
-        ),
-        widget.TextBox(
-            **decor(fg=colors[6], bg=colors[7], text="")
         ),
         widget.ThermalSensor(
             format=" {temp:.0f}{unit}",
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e gotop")},
-            background=colors[6],
-        ),
-        widget.TextBox(
-            **decor(fg=colors[3], bg=colors[6], text="")
+            background=colors[3],
         ),
         widget.Memory(
             format="{MemUsed: .0f}M",
