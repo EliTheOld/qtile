@@ -12,7 +12,7 @@ def init_widgets_defaults():
         font="Fantasque Sans Mono Nerd Font",
         fontsize=20,
         padding=6,
-        foreground=colors[2],
+        foreground=colors[4],
     )
 
 
@@ -25,58 +25,58 @@ def init_widgets_list():
     prompt = "{0}@{1}: ".format(os.environ["USER"], socket.gethostname())
     widgets_list = [
         widget.GroupBox(
-            background=colors[11],
+            background=colors[0],
             borderwidth=4,
-            active=colors[4],
-            inactive=colors[9],
+            active=colors[5],
+            inactive=colors[3],
             rounded=True,
             padding_y=0,
             highlight_method="text",
-            urgent_alert_method="block",
-            urgent_border=colors[3],
-            this_current_screen_border=colors[7],
-            this_screen_border=colors[7],
+            urgent_alert_method="text",
+            urgent_border=colors[12],
+            this_current_screen_border=colors[6],
+            this_screen_border=colors[6],
             other_current_screen_border=colors[6],
             other_screen_border=colors[9],
             disable_drag=True,
             fontsize=20,
         ),
         widget.TextBox(
-            **decor(fg=colors[11], bg=colors[10], text="")
+            **decor(fg=colors[0], bg=colors[1], text="")
         ),
         widget.OpenWeather(
             location='Moscow',
             format='{location_city}: {icon} {main_temp}°{units_temperature}',
-            background=colors[10],
+            background=colors[1],
         ),
         widget.TextBox(
-            **decor(fg=colors[10], bg=colors[14], text="")
+            **decor(fg=colors[1], bg=colors[2], text="")
         ),
         widget.CurrentLayoutIcon(
             padding=0,
             scale=0.7,
             margin_x=10,
-            background=colors[14],
+            background=colors[2],
         ),
         widget.CurrentLayout(
-            background=colors[14],
+            background=colors[2],
         ),
         widget.TextBox(
-            **decor(fg=colors[14], bg=colors[4], text="")
+            **decor(fg=colors[2], bg=colors[7], text="")
         ),
         widget.Prompt(
-            background=colors[4],
+            background=colors[7],
             foreground=colors[0],
             cursor=True,
             padding_x=5,
             record_history=True,
         ),
         widget.TextBox(
-            **decor(fg=colors[4], bg=colors[0], text="")
+            **decor(fg=colors[7], bg=colors[0], text="")
         ),
         widget.Spacer(),
         widget.TextBox(
-            **decor(fg=colors[15], bg=colors[0], text="")
+            **decor(fg=colors[10], bg=colors[0], text="")
         ),
         widget.CheckUpdates(
             distro="Arch_checkupdates",
@@ -84,62 +84,62 @@ def init_widgets_list():
             display_format=' Updates: {updates}',
             padding=4,
             update_interval=60,
-            background=colors[15],
+            background=colors[10],
         ),
         widget.TextBox(
-            **decor(fg=colors[5], bg=colors[15], text="")
+            **decor(fg=colors[8], bg=colors[10], text="")
         ),
         widget.KeyboardLayout(
             configured_keyboards=['us colemak', 'ru'],
             display_map={'us colemak': 'us', 'ru': 'ru'},
-            background=colors[5],
+            background=colors[8],
         ),
         widget.TextBox(
-            **decor(fg=colors[10], bg=colors[5], text="")
+            **decor(fg=colors[7], bg=colors[8], text="")
         ),
         widget.CPU(
             format=" {load_percent}%",
             update_interval=1,
-            background=colors[10],
+            background=colors[7],
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e gtop")},
         ),
         widget.TextBox(
-            **decor(fg=colors[14], bg=colors[10], text="")
+            **decor(fg=colors[6], bg=colors[7], text="")
         ),
         widget.ThermalSensor(
             format=" {temp:.0f}{unit}",
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e gotop")},
-            background=colors[14],
+            background=colors[6],
         ),
         widget.TextBox(
-            **decor(fg=colors[11], bg=colors[14], text="")
+            **decor(fg=colors[3], bg=colors[6], text="")
         ),
         widget.Memory(
             format="{MemUsed: .0f}M",
             update_interval=1,
             measure_mem="M",
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e bpytop")},
-            background=colors[11],
+            background=colors[3],
         ),
         widget.TextBox(
-            **decor(fg=colors[10], bg=colors[11], text="")
+            **decor(fg=colors[2], bg=colors[3], text="")
         ),
         widget.PulseVolume(
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e pulsemixer")},
             fmt="墳 {}",
-            background=colors[10],
+            background=colors[2],
         ),
         widget.TextBox(
-            **decor(fg=colors[14], bg=colors[10], text="")
+            **decor(fg=colors[1], bg=colors[2], text="")
         ),
         widget.Backlight(
             backlight_name="nvidia_wmi_ec_backlight",
             format="  {percent:2.0%}",
             margin_x=8,
-            background=colors[14],
+            background=colors[1],
         ),
         widget.TextBox(
-            **decor(fg=colors[0], bg=colors[14], text="")
+            **decor(fg=colors[0], bg=colors[1], text="")
         ),
         widget.Clock(
             format=" %H:%M  %d/%m",
@@ -149,13 +149,13 @@ def init_widgets_list():
         widget.UPowerWidget(
             battery_height=15,
             battery_width=30,
-            border_charge_colour=colors[2],
-            fill_charge=colors[4],
-            border_colour=colors[2],
-            fill_normal=colors[12],
-            border_critical_power=colors[2],
-            fill_critical=colors[6],
-            fill_low=colors[8],
+            border_charge_colour=colors[3],
+            fill_charge=colors[6],
+            border_colour=colors[3],
+            fill_normal=colors[8],
+            border_critical_power=colors[3],
+            fill_critical=colors[11],
+            fill_low=colors[14],
             text_charging="({percentage:.0f}%) {ttf} until fully charged",
             text_discarging="({percentage:.0f}%)",
             margin=5,
