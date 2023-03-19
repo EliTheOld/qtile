@@ -37,7 +37,7 @@ group_names = [
 ]
 
 group_labels = [
-    "Term",
+    "Dev",
     "Web",
     "Files",
     "TG",
