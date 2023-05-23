@@ -191,8 +191,8 @@ floating_layout = layout.Floating(
         Match(wm_class="alacritty"),
         Match(wm_class="Alacritty"),
     ],
-    fullscreen_border_width=0,
-    border_width=0,
+    fullscreen_border_width=4,
+    border_width=4,
 )
 auto_fullscreen = True
 
