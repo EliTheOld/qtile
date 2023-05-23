@@ -191,11 +191,11 @@ floating_layout = layout.Floating(
         Match(wm_class="alacritty"),
         Match(wm_class="Alacritty"),
     ],
-    fullscreen_border_width=4,
+    fullscreen_border_width=0,
     border_width=4,
 )
 auto_fullscreen = True
 
-focus_on_window_activation = "focus"  # or smart
+focus_on_window_activation = "smart"  # or smart
 
 wmname = "Qtile"
