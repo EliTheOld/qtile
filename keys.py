@@ -16,12 +16,12 @@ keys.extend(
         Key([mod], "t", lazy.spawn(myTermMain)),
         Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
         Key(
-            [mod], "a", lazy.spawn("/home/wizard/.config/rofi/launchers/type-2/launcher.sh")
+            [mod], "a", lazy.spawn("/home/wizard/.config/rofi/launchers/type-3/launcher.sh")
         ),
         Key(
             [mod],
             "x",
-            lazy.spawn("/home/wizard/.config/rofi/powermenu/type-3/powermenu.sh"),
+            lazy.spawn("/home/wizard/.config/rofi/powermenu/type-2/powermenu.sh"),
         ),
         Key([mod], "Escape", lazy.spawn("xkill")),
         Key([mod], "Return", lazy.spawn(myTermMain)),
