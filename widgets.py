@@ -9,8 +9,8 @@ from common import myTerm
 
 def init_widgets_defaults():
     return dict(
-        font="Fantasque Sans Mono Nerd Font",
-        fontsize=20,
+        font="JetBrainsMono Nerd Font Bold",
+        fontsize=16,
         padding=6,
         foreground=colors[4],
     )
@@ -39,7 +39,6 @@ def init_widgets_list():
             other_current_screen_border=colors[6],
             other_screen_border=colors[9],
             disable_drag=True,
-            fontsize=20,
         ),
         widget.TextBox(
             **decor(fg=colors[0], bg=colors[1], text="")
@@ -120,7 +119,7 @@ def init_widgets_list():
         ),
         widget.PulseVolume(
             mouse_callbacks={"Button1": lambda: qtile.cmd_spawn(myTerm + " -e pulsemixer")},
-            fmt="墳 {}",
+            fmt="󰖀 {}",
             background=colors[2],
         ),
         widget.TextBox(
